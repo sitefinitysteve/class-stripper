@@ -2,7 +2,9 @@
   "name": "class-stripper",
   "displayName": "class-stripper",
   "description": "Cleans Class Attributes from your HTML",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "publisher": "sitefinitysteve",
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.66.0"
   },

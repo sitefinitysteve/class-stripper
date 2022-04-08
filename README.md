@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="">
+</p>
+
+
 # class-stripper README
 
 This is the README for your extension "class-stripper". After writing up a brief description, we recommend including the following sections.
