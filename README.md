@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="">
+  <img src="https://github.com/sitefinitysteve/class-stripper/raw/bb40bba34e51ebcb346dba54ae668b98862e433f/icon.png" style="height: 150px" />
 </p>
 
 
