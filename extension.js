@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
 const parser = require('node-html-parser');
+const helper = require('./helper');
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -21,11 +23,11 @@ function activate(context) {
 		if (editor) {
 			const document = editor.document;
 			const selection = editor.selection;
-
+			
 			if(!selection.isEmpty){
 				try{
 					var selectedText = document.getText(selection);
-
+debugger;
 					// Get the word within the selection
 					if(parser.valid(selectedText)){
 						const root = parser.parse(selectedText);
@@ -57,6 +59,7 @@ function activate(context) {
 
 	context.subscriptions.push(disposable);
 }
+
 
 // this method is called when your extension is deactivated
 function deactivate() {}
