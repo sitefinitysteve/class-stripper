@@ -15,6 +15,10 @@
 
 This VSCode extension takes a chunk of selected HTML and cleans the class, and style attributes so you can style from raw Html. Useful if you need to re-theme from like Boostrap to Tailwind for example.
 
+## Commands
+
+* Clean Class and Style Attributes
+
 ## Known Issues
 
 None
