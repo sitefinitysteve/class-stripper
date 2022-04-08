@@ -1,8 +1,8 @@
 {
   "name": "class-stripper",
-  "displayName": "class-stripper",
+  "displayName": "Class Stripper",
   "description": "Cleans Class Attributes from your HTML",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "sitefinitysteve",
   "icon": "icon.png",
   "repository": {
