@@ -9,6 +9,7 @@
   <img src="https://github.com/sitefinitysteve/class-stripper/raw/6a1b34282ec4d01a6be32396f067beb875da03fe/demo.gif" />
 </p>
 
+## [Try my webapp version](https://tailwind-class-stripper.netlify.app/)
 
 ## Features
 
@@ -24,3 +25,6 @@ None
 ### 1.0.0
 
 Initial release
+
+
+Made by: [https://www.sitefinitysteve.com/](https://www.sitefinitysteve.com/)
