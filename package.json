@@ -26,14 +26,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:class-stripper.cleanClasses"
+    "onCommand:class-stripper.cleanClassAndStyle"
   ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "class-stripper.cleanClasses",
-        "title": "Strip Css Classes"
+        "command": "class-stripper.cleanClassAndStyle",
+        "title": "Clean Class and Style Attributes"
       }
     ]
   },

@@ -16,7 +16,7 @@ function activate(context) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('class-stripper.cleanClasses', function () {
+	let disposable = vscode.commands.registerCommand('class-stripper.cleanClassAndStyle', function () {
 		// Get the active text editor
 		const editor = vscode.window.activeTextEditor;
 
@@ -27,7 +27,7 @@ function activate(context) {
 			if(!selection.isEmpty){
 				try{
 					var selectedText = document.getText(selection);
-debugger;
+
 					// Get the word within the selection
 					if(parser.valid(selectedText)){
 						const root = parser.parse(selectedText);
