@@ -12,28 +12,28 @@ suite('Extension Test Suite', () => {
 		var rawHtml = `<div class="test"><h1>Some Title</h1></div>`;
 		var expectedHtml = `<div><h1>Some Title</h1></div>`;
 
-		assert.equal(helper.stripHtml(rawHtml), expectedHtml);
+		assert.equal(helper.stripClasses(rawHtml), expectedHtml);
 	});
 
 	test('Can remove style', () => {
 		var rawHtml = `<div><h1 style="margin-top: 10px">Some Title</h1></div>`;
 		var expectedHtml = `<div><h1>Some Title</h1></div>`;
 
-		assert.equal(helper.stripHtml(rawHtml), expectedHtml);
+		assert.equal(helper.stripStyles(rawHtml), expectedHtml);
 	});
 
 	test('Can remove class and style', () => {
 		var rawHtml = `<div class="test"><h1 style="margin-top: 10px">Some Title</h1></div>`;
 		var expectedHtml = `<div><h1>Some Title</h1></div>`;
 
-		assert.equal(helper.stripHtml(rawHtml), expectedHtml);
+		assert.equal(helper.stripAll(rawHtml), expectedHtml);
 	});
 
 	test('Newlines are preserved', () => {
 		var rawHtml = `<div class="test">
 							<h1 style="margin-top: 10px">Some Title</h1>
 						</div>`;
-		var strippedHtml = helper.stripHtml(rawHtml);
+		var strippedHtml = helper.stripAll(rawHtml);
 
 		assert.ok(rawHtml.includes("\n"));
 		assert.ok(strippedHtml.includes("\n"));

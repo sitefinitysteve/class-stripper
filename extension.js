@@ -12,11 +12,7 @@ const helper = require('./helper');
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('class-stripper.cleanClassAndStyle', function () {
+	context.subscriptions.push(vscode.commands.registerCommand('class-stripper.cleanClassAndStyle', function() {
 		// Get the active text editor
 		const editor = vscode.window.activeTextEditor;
 
@@ -29,21 +25,11 @@ function activate(context) {
 					var selectedText = document.getText(selection);
 
 					// Get the word within the selection
-					if(parser.valid(selectedText)){
-						const root = parser.parse(selectedText);
-					
-						//Clean class
-						root.querySelectorAll("[class]" ).forEach(function(el) {
-							el.removeAttribute("class");
-						});
-
-						//Clean style
-						root.querySelectorAll("[style]" ).forEach(function(el) {
-							el.removeAttribute("style");
-						});
+					if(helper.isValidHtml(selectedText)){
+						var resultingHtml = helper.stripHtml(selectedText, true, true);
 
 						editor.edit(editBuilder => {
-							editBuilder.replace(selection, root.toString());
+							editBuilder.replace(selection, resultingHtml);
 						});
 					}else {
 						vscode.window.showInformationMessage('Class Stripper: Invalid HTML');
@@ -55,9 +41,7 @@ function activate(context) {
 				vscode.window.showInformationMessage('Class Stripper: Select some HTML please!');
 			}
 		}
-	});
-
-	context.subscriptions.push(disposable);
+	}));
 }
 
 

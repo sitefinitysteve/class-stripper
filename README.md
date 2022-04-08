@@ -31,4 +31,11 @@ None
 Initial release
 
 
-Made by: [https://www.sitefinitysteve.com/](https://www.sitefinitysteve.com/)
+### VSIX Build command
+```
+> vsce package
+```
+Publish to [https://marketplace.visualstudio.com/](https://marketplace.visualstudio.com/)
+
+
+### Made by: [https://www.sitefinitysteve.com/](https://www.sitefinitysteve.com/)
