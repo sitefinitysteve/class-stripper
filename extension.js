@@ -30,8 +30,14 @@ function activate(context) {
 					if(parser.valid(selectedText)){
 						const root = parser.parse(selectedText);
 					
+						//Clean class
 						root.querySelectorAll("[class]" ).forEach(function(el) {
 							el.removeAttribute("class");
+						});
+
+						//Clean style
+						root.querySelectorAll("[style]" ).forEach(function(el) {
+							el.removeAttribute("style");
 						});
 
 						editor.edit(editBuilder => {
