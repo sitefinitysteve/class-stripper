@@ -19,23 +19,53 @@ function activate(context) {
 		if (editor) {
 			const document = editor.document;
 			const selection = editor.selection;
-			
+
 			if(!selection.isEmpty){
 				try{
 					var selectedText = document.getText(selection);
 
 					// Get the word within the selection
 					if(helper.isValidHtml(selectedText)){
-						var resultingHtml = helper.stripHtml(selectedText, true, true);
+						// Use the new cleanHtml API with default options
+						const result = helper.cleanHtml(selectedText, {
+							stripClasses: true,
+							stripStyles: true,
+							optimizeHtml: true,
+							trackStatistics: true
+						});
+
+						if (result.error) {
+							vscode.window.showErrorMessage(`Class Stripper: ${result.error}`);
+							return;
+						}
 
 						editor.edit(editBuilder => {
-							editBuilder.replace(selection, resultingHtml);
+							editBuilder.replace(selection, result.html);
 						});
+
+						// Show statistics to the user
+						if (result.statistics) {
+							const stats = result.statistics;
+							const messages = [];
+
+							if (stats.classesRemoved > 0) messages.push(`${stats.classesRemoved} classes`);
+							if (stats.stylesRemoved > 0) messages.push(`${stats.stylesRemoved} styles`);
+							if (stats.emptyDivsRemoved > 0) messages.push(`${stats.emptyDivsRemoved} empty divs`);
+							if (stats.divsBubbledUp > 0) messages.push(`${stats.divsBubbledUp} wrapper divs`);
+
+							if (messages.length > 0) {
+								vscode.window.showInformationMessage(
+									`Class Stripper: Removed ${messages.join(', ')}`
+								);
+							} else {
+								vscode.window.showInformationMessage('Class Stripper: No changes needed');
+							}
+						}
 					}else {
 						vscode.window.showInformationMessage('Class Stripper: Invalid HTML');
 					}
 				}catch(err){
-					vscode.window.showInformationMessage('Class Stripper: Invalid HTML');
+					vscode.window.showErrorMessage(`Class Stripper: ${err.message || 'Invalid HTML'}`);
 				}
 			}else{
 				vscode.window.showInformationMessage('Class Stripper: Select some HTML please!');

@@ -2,7 +2,7 @@
   "name": "class-stripper",
   "displayName": "Class Stripper",
   "description": "Cleans Class Attributes from your HTML",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "publisher": "sitefinitysteve",
   "icon": "icon.png",
   "repository": {
@@ -54,6 +54,7 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
-    "node-html-parser": "^5.3.3"
+    "node-html-parser": "^5.3.3",
+    "js-beautify": "^1.14.11"
   }
 }
